@@ -1,62 +1,39 @@
-# Sentiment Analysis System
+<div align="center">
 
-An AI-powered web application designed to analyze Google Play application reviews and present interactive sentiment metrics through a dynamic web interface.
+# 📊 Google Play Review Sentiment Analysis System
+### *BERT Transformer Pipeline & PHP-MySQL Analytics Dashboard*
 
----
-
-## Overview
-
-This project provides an end-to-end workflow for processing app user feedback. It utilizes an offline machine learning pipeline powered by a fine-tuned BERT model to analyze review sentiments. The resulting predictions and analytics are stored in a MySQL database and served via a responsive web dashboard for evaluation.
-
----
-
-## Key Features
-
-- **Sentiment Analytics Dashboard:** Interactive data visualizations for app review sentiment distributions.
-- **Offline ML Pipeline:** Fine-tuned BERT model for precise sentiment classification on app reviews.
-- **Data Preprocessing & Cleaning:** Structured data preparation pipelines using Jupyter Notebooks.
-- **User & Admin Management:** Secure backend access for reviewing metrics and system activity logs.
+[![Python](https://img.shields.io/badge/Python-3.10%2B-blue?logo=python&logoColor=white)](https://python.org)
+[![PyTorch](https://img.shields.io/badge/PyTorch-2.x-EE4C2C?logo=pytorch&logoColor=white)](https://pytorch.org)
+[![BERT](https://img.shields.io/badge/Model-BERT%20Transformer-yellow?logo=huggingface&logoColor=white)](https://huggingface.co)
+[![PHP](https://img.shields.io/badge/PHP-8.x-777BB4?logo=php&logoColor=white)](https://php.net)
+[![MySQL](https://img.shields.io/badge/MySQL-Database-4479A1?logo=mysql&logoColor=white)](https://mysql.com)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
 ---
 
-## System Architecture & ML Pipeline
+</div>
 
-The machine learning workflow operates independently of the live web interface to ensure optimal application performance:
+## 📌 Project Overview
 
-1. **Data Collection & Cleaning (`notebooks/`):**
-   - `dataset_processing.ipynb` & `fixing_csv.ipynb`: Cleaning and structuring raw Google Play review data.
-   - `correlation_analysis.ipynb`: Statistical analysis of user rating trends and sentiment markers.
+This repository hosts an end-to-end **Natural Language Processing (NLP) & Analytics Platform** designed to scrape, analyze, and visualize user feedback from Google Play Store applications. 
 
-2. **Model Training & Inference (`notebooks/`):**
-   - `bert_training.ipynb`: Fine-tuning a pre-trained BERT model on review datasets.
-   - `trained_bert.ipynb`: Model evaluation and generation of prediction datasets.
+By leveraging a fine-tuned **BERT (Bidirectional Encoder Representations from Transformers)** model, the system evaluates contextual sentiment beyond simple keyword matching and pipes structured metrics into a custom **PHP/MySQL web dashboard** for executive reporting.
 
-3. **Web Application Dashboard:**
-   - Pre-calculated sentiment predictions are ingested into a MySQL database.
-   - The PHP dynamic dashboard retrieves and visualizes sentiment trends in real time.
+> **Business Value:** Enables product managers and developers to automatically track app store sentiment trends, identify recurring user pain points, and make data-driven feature decisions.
 
 ---
 
-## Project Structure
+## ⚙️ System Architecture & Data Flow
 
 ```text
-FYP_Project/
-│
-├── CSS/                  # Stylesheets for admin and user dashboards
-├── Javascript/           # Frontend interactivity and chart renderings
-├── PHP/                  # Application backend and database connections
-│   ├── admin/            # Admin control panel and log management
-│   ├── config/           # Database and base path setup
-│   ├── includes/         # Session authentication and activity logs
-│   └── user/             # User views and sentiment pages
-│
-├── notebooks/            # Machine Learning & Data Processing Notebooks
-│   ├── dataset_processing.ipynb
-│   ├── correlation_analysis.ipynb
-│   ├── bert_training.ipynb
-│   ├── trained_bert.ipynb
-│   └── fixing_csv.ipynb
-│
-├── Picture/              # Static assets and UI images
-├── index.php             # Main entry point
-└── README.md             # Project documentation
+ ┌──────────────────────┐     ┌──────────────────────┐     ┌──────────────────────┐
+ │ Google Play Scraping │ ──► │  BERT Fine-Tuned ML  │ ──► │ MySQL Database Engine│
+ │ API & Tokenization   │     │ Sentiment Scoring    │     │ Ingestion & Storage  │
+ └──────────────────────┘     └──────────────────────┘     └──────────┬───────────┘
+                                                                      │
+                                                           ┌──────────▼───────────┐
+                                                           │ PHP Web Analytics    │
+                                                           │ Interactive Dashboard│
+                                                           └──────────────────────┘
