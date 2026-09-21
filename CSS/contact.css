@@ -1,0 +1,135 @@
+:root {
+    --bg: #07090c;
+    --muted: #9aa6bd;
+    --accent: #5ce1ff;
+    --accent-2: #9b5cff
+}
+
+* {
+    box-sizing: border-box
+}
+
+body {
+    margin: 0;
+    font-family: Inter, Poppins, system-ui;
+    color: #e9f2ff;
+    background: linear-gradient(180deg, #030409, #07101a);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column
+}
+
+.nav-glow {
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.02)
+}
+
+.nav-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between
+}
+
+.brand {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.05rem;
+    display: flex;
+    align-items: center;
+    gap: 6px
+}
+
+.brand .neon {
+    color: transparent;
+    text-shadow: 0 0 18px rgba(92, 225, 255, 0.14);
+    background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    -webkit-background-clip: text;
+    background-clip: text
+}
+
+.brand .dot {
+    color: var(--muted);
+    font-weight: 600
+}
+
+nav a {
+    color: var(--muted);
+    text-decoration: none;
+    margin-left: 22px;
+    padding: 6px 10px;
+    border-radius: 8px;
+    transition: all .18s ease
+}
+
+nav a:hover {
+    color: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 22px rgba(91, 201, 255, 0.06), inset 0 0 8px rgba(155, 92, 255, 0.02)
+}
+
+nav a.active {
+    color: #fff;
+    box-shadow: 0 6px 20px rgba(92, 225, 255, 0.06)
+}
+
+.contact-main {
+    flex: 1;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 48px 24px;
+    text-align: center
+}
+
+.contact-form {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px
+}
+
+.contact-form input,
+.contact-form textarea,
+.contact-form select {
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    background: rgba(255, 255, 255, 0.02);
+    color: #e9f2ff
+}
+
+.contact-form select option {
+    background-color: var(--bg);
+    color: #e9f2ff;
+}
+
+.contact-form button {
+    padding: 12px;
+    border-radius: 10px;
+    border: 0;
+    background: linear-gradient(90deg, var(--accent), #9b5cff);
+    font-weight: 700;
+    color: #071018;
+    cursor: pointer
+}
+
+.site-footer {
+    margin-top: 40px;
+    padding: 18px 0;
+    color: var(--muted);
+    border-top: 1px solid rgba(255, 255, 255, 0.02)
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity .55s ease, transform .55s ease
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: none
+}
